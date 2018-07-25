@@ -1,4 +1,6 @@
 ﻿using System;
+using Google.App.Core;
+using Google.App.Core.Contracts;
 using Google.Data;
 using Google.Services;
 using Microsoft.Extensions.DependencyInjection;
@@ -11,6 +13,10 @@ namespace Google.App
         public static void Main(string[] args)
         {
             var service = ConfigureService();
+
+            IEngine engine = new Engine();
+
+            engine.Run();
         }
 
         private static IServiceProvider ConfigureService()

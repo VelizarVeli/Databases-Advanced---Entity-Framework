@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Linq;
+using System.Reflection;
 using Google.App.Core.Contracts;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Google.App.Core
 {
@@ -14,7 +17,29 @@ namespace Google.App.Core
 
         public string Read(string[] input)
         {
-            throw new System.NotImplementedException();
+            string commandName = input[0] + "Command";
+
+            string[] args = input.Skip(1).ToArray();
+
+            var type = Assembly.GetCallingAssembly()
+                .GetTypes()
+                .FirstOrDefault(x => x.Name == commandName);
+
+            var constructor = type.GetConstructors()
+                .First();
+
+            var constructorParameters = constructor.GetParameters()
+                .Select(x => x.ParameterType)
+                .ToArray();
+
+            var service = constructorParameters.Select(serviceProvider.GetService)
+                .ToArray();
+
+            var command = (ICommand) constructor.Invoke(service);
+
+            string result = command.Execute(args);
+
+            return result;
         }
     }
 }
