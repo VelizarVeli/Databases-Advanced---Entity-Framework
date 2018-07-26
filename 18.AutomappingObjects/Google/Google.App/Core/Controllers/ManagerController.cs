@@ -20,7 +20,6 @@ namespace Google.App.Core.Controllers
         public ManagerDto GetManagerInfo(int employeeId)
         {
             var employee = context.Employees
-                .Include(x => x.ManagerEmployees)
                 .Where(x => x.Id == employeeId)
                 .ProjectTo<ManagerDto>()
                 .SingleOrDefault();
