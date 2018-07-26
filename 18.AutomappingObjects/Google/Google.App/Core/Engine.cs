@@ -20,9 +20,13 @@ namespace Google.App.Core
 
             initializeDb.InitializeDatabase();
 
+            var commandInterpreter = this.serviceProvider.GetService<ICommandInterpreter>();
+
             while (true)
             {
                 string[] input = Console.ReadLine().Split(" ", StringSplitOptions.RemoveEmptyEntries);
+                var result = commandInterpreter.Read(input);
+                Console.WriteLine(result);
             }
         }
     }
