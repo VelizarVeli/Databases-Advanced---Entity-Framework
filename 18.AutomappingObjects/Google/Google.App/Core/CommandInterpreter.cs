@@ -25,6 +25,11 @@ namespace Google.App.Core
                 .GetTypes()
                 .FirstOrDefault(x => x.Name == commandName);
 
+            if (type == null)
+            {
+                throw new ArgumentException("Invalid command");
+            }
+
             var constructor = type.GetConstructors()
                 .First();
 

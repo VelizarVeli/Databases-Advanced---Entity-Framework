@@ -4,14 +4,16 @@ using Google.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Google.Data.Migrations
 {
     [DbContext(typeof(GoogleContext))]
-    partial class GoogleContextModelSnapshot : ModelSnapshot
+    [Migration("20180726115547_AddManager")]
+    partial class AddManager
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

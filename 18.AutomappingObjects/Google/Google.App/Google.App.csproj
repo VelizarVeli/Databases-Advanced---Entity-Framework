@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <PackageReference Include="automapper" Version="7.0.1" />
+    <PackageReference Include="automapper.extensions.microsoft.dependencyinjection" Version="5.0.1" />
     <PackageReference Include="microsoft.extensions.dependencyinjection" Version="2.1.1" />
   </ItemGroup>
 
