@@ -6,9 +6,9 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace Google.App.Core
 {
-  public  class CommandInterpreter:ICommandInterpreter
-  {
-      private readonly IServiceProvider serviceProvider;
+    public class CommandInterpreter : ICommandInterpreter
+    {
+        private readonly IServiceProvider serviceProvider;
 
         public CommandInterpreter(IServiceProvider serviceProvider)
         {
@@ -40,7 +40,7 @@ namespace Google.App.Core
             var service = constructorParameters.Select(serviceProvider.GetService)
                 .ToArray();
 
-            var command = (ICommand) constructor.Invoke(service);
+            var command = (ICommand)constructor.Invoke(service);
 
             string result = command.Execute(args);
 

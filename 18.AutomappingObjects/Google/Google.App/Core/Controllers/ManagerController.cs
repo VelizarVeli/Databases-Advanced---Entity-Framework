@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using Google.App.Core.Contracts;
 using Google.App.Core.Dtos;
@@ -12,16 +13,20 @@ namespace Google.App.Core.Controllers
     {
         private readonly GoogleContext context;
 
-        public ManagerController(GoogleContext context)
+        private readonly IMapper mapper;
+
+        public ManagerController(GoogleContext context, IMapper mapper)
         {
             this.context = context;
+
+            this.mapper = mapper;
         }
 
         public ManagerDto GetManagerInfo(int employeeId)
         {
             var employee = context.Employees
                 .Where(x => x.Id == employeeId)
-                .ProjectTo<ManagerDto>()
+                .Select(x=>mapper.Map<ManagerDto>(x))
                 .SingleOrDefault();
 
             if (employee == null)

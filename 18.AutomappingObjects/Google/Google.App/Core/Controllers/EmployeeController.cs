@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
@@ -9,7 +10,7 @@ using Google.Models;
 
 namespace Google.App.Core.Controllers
 {
-    public class EmployeeController:IEmployeeController
+    public class EmployeeController : IEmployeeController
     {
         private readonly GoogleContext context;
         private readonly IMapper mapper;
