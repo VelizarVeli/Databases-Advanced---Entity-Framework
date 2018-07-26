@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using AutoMapper;
 using Google.App.Core;
 using Google.App.Core.Contracts;
