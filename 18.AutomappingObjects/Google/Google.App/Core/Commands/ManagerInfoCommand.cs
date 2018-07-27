@@ -14,21 +14,21 @@ namespace Google.App.Core.Commands
 
         public string Execute(string[] args)
         {
-            StringBuilder builder = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
 
             int employeeId = int.Parse(args[0]);
 
             var managerDto = this.managerController.GetManagerInfo(employeeId);
 
-            builder.AppendLine(
+            sb.AppendLine(
                 $"{managerDto.FirstName} {managerDto.LastName} | Employees: {managerDto.EmployeesCount}");
 
             foreach (var employee in managerDto.EmployeeDtos)
             {
-                builder.AppendLine($"- {employee.FirstName} {employee.LastName} - ${employee.Salary:f2}");
+                sb.AppendLine($"- {employee.FirstName} {employee.LastName} - ${employee.Salary:f2}");
             }
 
-            return builder.ToString().TrimEnd();
+            return sb.ToString().TrimEnd();
         }
     }
 }
