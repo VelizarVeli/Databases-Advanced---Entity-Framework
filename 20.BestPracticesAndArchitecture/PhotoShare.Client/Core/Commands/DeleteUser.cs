@@ -18,7 +18,7 @@
         // DeleteUser <username>
         public string Execute(string[] data)
         {
-            string username = data[1];
+            string username = data[0];
 
             var userExists = this.userService.Exists(username);
 

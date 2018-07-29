@@ -23,7 +23,7 @@
 
             var townExists = this.townService.Exists(townName);
 
-            if (!townExists)
+            if (townExists)
             {
                 throw new ArgumentException($"Town {townName} was already added!");
             }
