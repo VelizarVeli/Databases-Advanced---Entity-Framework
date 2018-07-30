@@ -11,11 +11,17 @@
         {
             CreateMap<User, User>();
 
+            CreateMap<Album, Album>();
+
+            CreateMap<Town, Town>();
+
             CreateMap<Town, TownDto>().ReverseMap();
 
             CreateMap<Album, AlbumDto>().ReverseMap();
 
             CreateMap<Tag, TagDto>().ReverseMap();
+
+            CreateMap<Album, AlbumDto>().ReverseMap();
 
             CreateMap<AlbumRole, AlbumRoleDto>()
                     .ForMember(dest => dest.AlbumName, from => from.MapFrom(p => p.Album.Name))

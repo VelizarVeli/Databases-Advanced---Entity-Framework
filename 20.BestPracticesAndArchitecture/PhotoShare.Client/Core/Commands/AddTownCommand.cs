@@ -25,12 +25,12 @@
 
             if (townExists)
             {
-                throw new ArgumentException($"Town {townName} was already added!");
+                throw new ArgumentException($"Town {townName} has been already added!");
             }
 
             var town = this.townService.Add(townName, country);
 
-            return $"Town {townName} was added successfully!";
+            return $"Town {townName} has been added successfully!";
         }
     }
 }

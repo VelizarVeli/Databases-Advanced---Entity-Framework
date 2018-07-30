@@ -1,61 +1,60 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using AutoMapper.QueryableExtensions;
-using PhotoShare.Data;
-using PhotoShare.Models;
-using PhotoShare.Models.Enums;
-using PhotoShare.Services.Contracts;
-
-namespace PhotoShare.Services
+﻿namespace PhotoShare.Services
 {
+    using System;
+    using System.Linq;
+    using System.Collections.Generic;
+    using AutoMapper.QueryableExtensions;
+
+    using Data;
+    using Models;
+    using Contracts;
+    using PhotoShare.Models.Enums;
+
     public class AlbumService : IAlbumService
     {
         private readonly PhotoShareContext context;
 
-        public AlbumService()
+        public AlbumService(PhotoShareContext context)
         {
             this.context = context;
         }
 
-        public TModel ById<TModel>(int id) => By<TModel>(x => x.Id == id).SingleOrDefault();
+        public TModel ById<TModel>(int id)
+            => By<TModel>(a => a.Id == id).SingleOrDefault();
 
-        public TModel ByName<TModel>(string name) => By<TModel>(x => x.Name == name).SingleOrDefault();
+        public TModel ByName<TModel>(string name)
+            => By<TModel>(a => a.Name == name).SingleOrDefault();
 
-        public bool Exists(int id) => ById<Album>(id) != null;
+        public bool Exists(int id)
+            => ById<Album>(id) != null;
 
-        public bool Exists(string name) => ByName<Album>(name) != null;
+        public bool Exists(string name)
+            => ByName<Album>(name) != null;
 
-        public Album Create(int userId, string albumTitle, string bgColor, string[] tags)
+        private IEnumerable<TModel> By<TModel>(Func<Album, bool> predicate)
+            => this.context.Albums.Where(predicate).AsQueryable().ProjectTo<TModel>();
+
+        public Album Create(int userId, string albumTitle, string BgColor, string[] tags)
         {
-            var backgroundColor = Enum.Parse<Color>(bgColor, true);
+            var bgColorAsEnum = Enum.Parse<Color>(BgColor);
 
-            var album = new Album()
+            var album = new Album
             {
                 Name = albumTitle,
-                BackgroundColor = backgroundColor
+                BackgroundColor = bgColorAsEnum
             };
 
             this.context.Albums.Add(album);
-            this.context.SaveChanges();
-
-            var albumRole = new AlbumRole
-            {
-                UserId = userId,
-                Album = album
-            };
-
-            this.context.AlbumRoles.Add(albumRole);
-            this.context.SaveChanges();
 
             foreach (var tag in tags)
             {
-                var currentTagId = this.context.Tags.FirstOrDefault(x => x.Name == tag).Id;
+                var tagId = this.context.Tags
+                    .FirstOrDefault(t => t.Name.Equals(tag)).Id;
 
                 var albumTag = new AlbumTag
                 {
                     Album = album,
-                    TagId = currentTagId
+                    TagId = tagId
                 };
 
                 this.context.AlbumTags.Add(albumTag);
@@ -65,8 +64,5 @@ namespace PhotoShare.Services
 
             return album;
         }
-
-        private IEnumerable<TModel> By<TModel>(Func<Album, bool> predicate) =>
-            this.context.Albums.Where(predicate).AsQueryable().ProjectTo<TModel>();
     }
 }

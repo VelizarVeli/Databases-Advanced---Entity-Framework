@@ -31,7 +31,8 @@ namespace PhotoShare.Services
             {
                 Username = username,
                 Password = password,
-                Email = email
+                Email = email,
+                IsDeleted = false
             };
 
             this.context.Add(user);
@@ -45,7 +46,7 @@ namespace PhotoShare.Services
         {
             var user = this.ByUsername<User>(username);
 
-            this.context.Users.Remove(user);
+            user.IsDeleted = true;
 
             this.context.SaveChanges();
         }

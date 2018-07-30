@@ -4,6 +4,8 @@
 
     public class RegisterUserDto
     {
+        public int Id { get; set; }
+
         public string Username { get; set; }
 
         [Password(4,20)]
