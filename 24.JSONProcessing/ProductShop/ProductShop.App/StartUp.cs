@@ -6,7 +6,7 @@ namespace ProductShop.App
     using AutoMapper;
 
     using Data;
-    using Model;
+    using Models;
     using Newtonsoft.Json;
     public class StartUp
     {

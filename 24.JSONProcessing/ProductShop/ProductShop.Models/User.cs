@@ -1,4 +1,6 @@
-﻿namespace ProductShop.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace ProductShop.Models
 {
     using System.Collections.Generic;
 
@@ -14,6 +16,8 @@
 
         public string FirstName { get; set; }
 
+        [MinLength(3)]
+        [Required]
         public string LastName { get; set; }
 
         public int? Age { get; set; }
