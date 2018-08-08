@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace TeamBuilder.App
 {
@@ -6,7 +6,6 @@ namespace TeamBuilder.App
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
         }
     }
 }
