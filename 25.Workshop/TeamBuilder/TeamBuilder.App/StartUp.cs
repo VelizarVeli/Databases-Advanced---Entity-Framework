@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace TeamBuilder.App
 {
@@ -6,6 +6,10 @@ namespace TeamBuilder.App
     {
         static void Main(string[] args)
         {
+<<<<<<< HEAD
+=======
+           Console.WriteLine();
+>>>>>>> 211c75455379794ce145833d7cb937a093a1c445
         }
     }
 }
