@@ -23,6 +23,36 @@ namespace TeamBuilder.App
 
             switch (commandName)
             {
+                case "ShowTeam":
+                    ShowTeamCommand showTeamCommand = new ShowTeamCommand();
+                    return showTeamCommand.Execute(commandArgs);
+                case "ShowEvent":
+                    ShowEventCommand showEventCommand = new ShowEventCommand();
+                    return showEventCommand.Execute(commandArgs);
+                case "AddTeamTo":
+                    AddTeamToCommand addTeamToCommand = new AddTeamToCommand(this._authManager);
+                    return addTeamToCommand.Execute(commandArgs);
+                case "Disband":
+                    DisbandCommand disbandCommand = new DisbandCommand(this._authManager);
+                    return disbandCommand.Execute(commandArgs);
+                case "KickMember":
+                    KickMemberCommand kickMemberCommand = new KickMemberCommand(this._authManager);
+                    return kickMemberCommand.Execute(commandArgs);
+                case "AcceptInvite":
+                    AcceptInviteCommand acceptInviteCommand = new AcceptInviteCommand(this._authManager);
+                    return acceptInviteCommand.Execute(commandArgs);
+                case "DeclineInvite":
+                    DeclineInviteCommand declineInviteCommand = new DeclineInviteCommand(this._authManager);
+                    return declineInviteCommand.Execute(commandArgs);
+                case "InviteToTeam":
+                    InviteToTeamCommand inviteToTeamCommand = new InviteToTeamCommand(this._authManager);
+                    return inviteToTeamCommand.Execute(commandArgs);
+                case "CreateTeam":
+                    CreateTeamCommand createTeamCommand = new CreateTeamCommand(this._authManager);
+                    return createTeamCommand.Execute(commandArgs);
+                case "CreateEvent":
+                    CreateEventCommand createEventCommand = new CreateEventCommand(this._authManager);
+                    return createEventCommand.Execute(commandArgs);
                 case "Exit":
                     ExitCommand exitCommand = new ExitCommand();
                     return exitCommand.Execute(new string[0]);

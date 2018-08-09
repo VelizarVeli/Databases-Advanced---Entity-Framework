@@ -2,7 +2,7 @@
 
 namespace TeamBuilder.App.Utilities
 {
-    public class Check
+    public static class Check
     {
         public static void CheckLength(int expectedLength, string[] array)
         {

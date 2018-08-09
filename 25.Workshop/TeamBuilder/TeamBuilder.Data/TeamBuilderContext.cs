@@ -34,10 +34,12 @@ namespace TeamBuilder.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.ApplyConfiguration(new EventConfiguration());
             modelBuilder.ApplyConfiguration(new UserConfiguration());
             modelBuilder.ApplyConfiguration(new TeamConfiguration());
             modelBuilder.ApplyConfiguration(new UserTeamConfiguration());
             modelBuilder.ApplyConfiguration(new TeamEventConfiguration());
+            modelBuilder.ApplyConfiguration(new InvitationConfiguration());
             base.OnModelCreating(modelBuilder);
         }
     }

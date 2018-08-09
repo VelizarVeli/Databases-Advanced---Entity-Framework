@@ -18,7 +18,7 @@ namespace TeamBuilder.App
                 try
                 {
                     string input = Console.ReadLine();
-                    this.dispatcher.Dispatch(input);
+                    Console.WriteLine(this.dispatcher.Dispatch(input));
                 }
                 catch (Exception e)
                 {

@@ -43,6 +43,11 @@ namespace TeamBuilder.App.Core.Command
                 throw new ArgumentException(Constants.ErrorMessages.AgeNotValid);
             }
 
+            if (age < 0)
+            {
+                throw new ArgumentException(Constants.ErrorMessages.AgeNotValid);
+            }
+
             if (!Enum.TryParse<GenderEnum>(args[6], out gender))
             {
                 throw new ArgumentException(Constants.ErrorMessages.GenderNotValid);

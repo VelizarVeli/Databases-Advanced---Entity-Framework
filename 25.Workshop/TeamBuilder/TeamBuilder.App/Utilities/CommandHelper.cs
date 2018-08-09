@@ -26,7 +26,8 @@ namespace TeamBuilder.App.Utilities
         {
             using (TeamBuilderContext context = new TeamBuilderContext())
             {
-                return user.ReceivedInvitations.SingleOrDefault(x => x.Team.Name == teamName) == null ? false : true;
+                return context.Invitations.Any(i => i.Team.Name == teamName && i.InvitedUserId == user.Id && i.IsActive);
+                // user.ReceivedInvitations.SingleOrDefault(x => x.Team.Name == teamName) == null ? false : true;
             }
         }
 
@@ -50,7 +51,9 @@ namespace TeamBuilder.App.Utilities
         {
             using (TeamBuilderContext context = new TeamBuilderContext())
             {
-                return context.Teams.Find(teamName).Members.Any(x => x.User.Username == username);
+                return //context.Teams.Single(t => t.Name == teamName).UserTeams.Any(ut => ut.User.Username == username);
+
+                        context.Teams.Find(teamName).Members.Any(x => x.User.Username == username);
             }
         }
 
@@ -61,5 +64,5 @@ namespace TeamBuilder.App.Utilities
                 return context.Events.Any(x => x.Name == eventName);
             }
         }
-      }
+    }
 }

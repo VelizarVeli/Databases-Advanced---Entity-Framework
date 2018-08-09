@@ -3,14 +3,14 @@ using TeamBuilder.App.Utilities;
 
 namespace TeamBuilder.App.Core.Command
 {
-  public  class LogoutCommand:ICommand
-  {
-      private readonly AuthenticationManager _authManager;
+    public class LogoutCommand : ICommand
+    {
+        private readonly AuthenticationManager _authManager;
 
-      public LogoutCommand(AuthenticationManager authManager)
-      {
-          this._authManager = authManager;
-      }
+        public LogoutCommand(AuthenticationManager authManager)
+        {
+            this._authManager = authManager;
+        }
 
         public string Execute(string[] args)
         {

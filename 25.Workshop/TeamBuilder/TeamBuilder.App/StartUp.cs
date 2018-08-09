@@ -1,4 +1,4 @@
-using System;
+using TeamBuilder.App.Core;
 
 namespace TeamBuilder.App
 {
@@ -6,10 +6,8 @@ namespace TeamBuilder.App
     {
         static void Main(string[] args)
         {
-<<<<<<< HEAD
-=======
-           Console.WriteLine();
->>>>>>> 211c75455379794ce145833d7cb937a093a1c445
+            var engine = new Engine(new CommandDispatcher(new AuthenticationManager()));
+            engine.Run();
         }
     }
 }

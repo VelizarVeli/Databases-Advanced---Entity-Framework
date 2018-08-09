@@ -9,6 +9,8 @@
         public const int MinPasswordLength = 6;
         public const int MaxPasswordLength = 30;
         public const string DateTimeFormat = "dd/MM/yyyy HH:mm";
+        public const int MaxEventDescriptionLength = 250;
+        public const int MaxEventNameLength = 25;
         public static class ErrorMessages
         {
             // Common error messages.

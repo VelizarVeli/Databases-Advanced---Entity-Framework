@@ -24,14 +24,23 @@ namespace TeamBuilder.App.Core
 
         public void Logout()
         {
-            throw new InvalidOperationException(Constants.ErrorMessages.LoginFirst);
+            if (this.loggedInUser == null)
+            {
+                throw new InvalidOperationException(Constants.ErrorMessages.LoginFirst);
+            }
 
             this.loggedInUser = null;
         }
-
+        public void Authorizer()
+        {
+            if (loggedInUser == null)
+            {
+                throw new InvalidOperationException(Constants.ErrorMessages.LoginFirst);
+            }
+        }
         public void Authorize()
         {
-            if (IsAuthenticated())
+            if (!IsAuthenticated())
             {
                 throw new InvalidOperationException(Constants.ErrorMessages.LoginFirst);
             }

@@ -28,6 +28,7 @@ namespace TeamBuilder.Models
         [MaxLength(25)]
         public string LastName { get; set; }
 
+        [Required]
         [StringLength(30, MinimumLength = 6)]
         public string Password { get; set; }
 

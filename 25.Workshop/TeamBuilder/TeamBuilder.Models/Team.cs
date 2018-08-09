@@ -28,5 +28,6 @@ namespace TeamBuilder.Models
 
         public virtual ICollection<UserTeam> Members{ get; set; } = new List<UserTeam>();
         public virtual ICollection<TeamEvent> Events{ get; set; } = new List<TeamEvent>();
+        public virtual ICollection<Invitation> MemberInvitations { get; set; }
     }
 }

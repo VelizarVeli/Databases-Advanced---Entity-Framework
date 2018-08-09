@@ -28,7 +28,7 @@ namespace TeamBuilder.App.Core.Command
             string username = args[0];
             string password = args[1];
 
-            if (this._context.Users.Any(x => x.Username == username))
+            if (!this._context.Users.Any(x => x.Username == username))
             {
                 throw new ArgumentException(Constants.ErrorMessages.UserOrPasswordIsInvalid);
             }
