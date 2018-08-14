@@ -42,7 +42,7 @@ namespace MiniORM
         }
 
         private Dictionary<Type, PropertyInfo> DiscoverDbSets()
-        `{
+        {
             var dbSets = this.GetType().GetProperties()
                 .Where(pi => pi.PropertyType.GetGenericTypeDefinition() == typeof(DbSet<>))
                 .ToDictionary(pi => pi.PropertyType.GetGenericArguments().First(), pi => pi);
