@@ -4,7 +4,7 @@ using P01_StudentSystem.Data.Models;
 
 namespace P01_StudentSystem.Data.EntityConfiguration
 {
-  public  class StudentConfig:IEntityTypeConfiguration<Student>
+    public class StudentConfig : IEntityTypeConfiguration<Student>
     {
         public void Configure(EntityTypeBuilder<Student> builder)
         {

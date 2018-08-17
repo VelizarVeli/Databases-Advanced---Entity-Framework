@@ -4,11 +4,12 @@ using P01_StudentSystem.Data.Models;
 
 namespace P01_StudentSystem.Data.EntityConfiguration
 {
- public   class StudentCourseConfig:IEntityTypeConfiguration<StudentCourse>
+  public  class HomeworkConfig:IEntityTypeConfiguration<Homework>
     {
-        public void Configure(EntityTypeBuilder<StudentCourse> builder)
+        public void Configure(EntityTypeBuilder<Homework> builder)
         {
-            builder.HasKey(x => new {x.StudentId, x.CourseId});
+            builder.Property(x => x.Content)
+                .IsUnicode(false);
         }
     }
 }
