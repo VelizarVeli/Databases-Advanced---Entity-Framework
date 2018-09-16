@@ -14,4 +14,4 @@ C# DB Fundamentals
 
 |**Course**|**Link**| 
 |---|---|
-|<a href="https://softuni.bg/trainings/1985/database-basics-mssql-may-2018/internal" > Database Basics – MS SQL </a>   | <a href="https://softuni.bg/certificates/details/55509/6eb59dbe"> Link</a> |
+|<a href="https://softuni.bg/trainings/1972/databases-advanced-entity-framework-june-2018" > Database Basics – MS SQL </a>   | <a href="https://softuni.bg/certificates/details/57788/0b6c9184"> Link</a> |
