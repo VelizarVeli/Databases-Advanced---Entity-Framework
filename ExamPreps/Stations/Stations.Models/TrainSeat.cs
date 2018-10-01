@@ -7,12 +7,10 @@ namespace Stations.Models
 		public int Id { get; set; }
 
 		public int TrainId { get; set; }
-
 		[Required]
 		public Train Train { get; set; }
 
 		public int SeatingClassId { get; set; }
-
 		[Required]
 		public SeatingClass SeatingClass { get; set; }
 
